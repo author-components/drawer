@@ -1,0 +1,122 @@
+@chassis init;
+@chassis include anchor buttons form-controls;
+
+.author-drawer.demo {
+  & .toolbar {
+    display: flex;
+
+    & button {
+      margin-right: var(--inline-block-padding-x);
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+
+  & author-drawer {
+    @chassis z-index front;
+    background: white;
+    box-shadow: 0 0 2.36em 0 color-mod(black a(38.2%));
+    padding: 1em;
+    @chassis font-size small;
+
+    &[position="left"],
+    &[position="right"] {
+      min-width: 280px;
+      max-width: 320px;
+      width: 38.2vw;
+    }
+
+    &[position="left"] {
+      border-right: 2px solid var(--grey-n03);
+    }
+
+    &[position="right"] {
+      border-left: 2px solid var(--grey-n03);
+    }
+
+    &[position="top"],
+    &[position="bottom"] {
+      min-height: 280px;
+      max-height: 320px;
+      height: 38.2vh;
+    }
+
+    &[position="top"] {
+      border-bottom: 2px solid var(--grey-n03);
+    }
+
+    &[position="bottom"] {
+      border-top: 2px solid var(--grey-n03);
+    }
+  }
+
+  & pre {
+    @chassis apply inline-block margin-bottom padding;
+    background: var(--grey-n00);
+
+    & code {
+      @chassis font-size small;
+    }
+  }
+
+  & ul {
+    list-style: disc;
+    @chassis apply inline-block margin-bottom;
+
+    & li {
+      margin-left: 1em;
+    }
+  }
+
+  & .theme {
+    @chassis font-size small;
+  }
+
+  & > header {
+    padding: 1.46em 0 .90169942em;
+    border-bottom: 4px solid var(--header-border-color);
+
+    & h1 {
+      flex: 1 1 auto;
+      margin: 0 1em 0 0;
+      @chassis font-size large;
+    }
+
+    & .links {
+      display: flex;
+      align-items: center;
+
+      & a {
+        margin-left: 1em;
+
+        &:first-of-type {
+          margin-left: 0;
+        }
+      }
+    }
+
+    @chassis viewport-width from medium {
+      padding-top: 2.36em;
+
+      & .width.constraint {
+        display: flex;
+      }
+    }
+  }
+
+  & main {
+    @chassis constrain-width;
+    padding-bottom: 3.618em;
+
+    & > * {
+      padding-top: 3.82em;
+    }
+  }
+
+  &[data-theme="dark"] {
+    background: var(--grey-n10);
+    color: white;
+  }
+}

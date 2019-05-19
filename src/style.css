@@ -1,0 +1,57 @@
+:host {
+  position: fixed;
+  overflow: auto;
+  visibility: hidden;
+  transition: transform .382s;
+}
+
+:host *,
+:host *:before,
+:host *:after {
+  box-sizing: border-box;
+}
+
+:host([position="top"]) {
+  top: 0;
+  right: 0;
+  left: 0;
+  transform: translateY(-100%);
+}
+
+:host([position="right"]) {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateX(100%);
+}
+
+:host([position="bottom"]) {
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateY(100%);
+}
+
+:host,
+:host([position="left"]) {
+  top: 0;
+  bottom: 0;
+  transform: translateX(-100%);
+}
+
+:host([open]),
+:host([transition]) {
+  visibility: visible;
+}
+
+:host([position="top"][open]),
+:host([position="bottom"][open]) {
+  transform: translateY(0);
+}
+
+:host([open]),
+:host([position="right"][open]),
+:host([position="left"][open]) {
+  transform: translateX(0);
+}
