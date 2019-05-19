@@ -1,8 +1,5 @@
 :host {
-  position: fixed;
-  overflow: auto;
-  visibility: hidden;
-  transition: transform .382s;
+  display: block;
 }
 
 :host *,
@@ -11,21 +8,28 @@
   box-sizing: border-box;
 }
 
-:host([position="top"]) {
+:host(:not([inert])) {
+  position: fixed;
+  overflow: auto;
+  visibility: hidden;
+  transition: transform .382s;
+}
+
+:host([position="top"]:not([inert])) {
   top: 0;
   right: 0;
   left: 0;
   transform: translateY(-100%);
 }
 
-:host([position="right"]) {
+:host([position="right"]:not([inert])) {
   top: 0;
   right: 0;
   bottom: 0;
   transform: translateX(100%);
 }
 
-:host([position="bottom"]) {
+:host([position="bottom"]:not([inert])) {
   top: auto;
   right: 0;
   bottom: 0;
@@ -33,25 +37,25 @@
   transform: translateY(100%);
 }
 
-:host,
-:host([position="left"]) {
+:host(:not([inert])),
+:host([position="left"]:not([inert])) {
   top: 0;
   bottom: 0;
   transform: translateX(-100%);
 }
 
-:host([open]),
-:host([transition]) {
+:host([open]:not([inert])),
+:host([transition]:not([inert])) {
   visibility: visible;
 }
 
-:host([position="top"][open]),
-:host([position="bottom"][open]) {
+:host([position="top"][open]:not([inert])),
+:host([position="bottom"][open]:not([inert])) {
   transform: translateY(0);
 }
 
-:host([open]),
-:host([position="right"][open]),
-:host([position="left"][open]) {
+:host([open]:not([inert])),
+:host([position="right"][open]:not([inert])),
+:host([position="left"][open]:not([inert])) {
   transform: translateX(0);
 }

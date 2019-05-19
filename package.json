@@ -1,6 +1,6 @@
 {
   "name": "@author.io/element-drawer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "author-drawer custom element (web component).",
   "main": "dist/author-drawer.min.js",
   "scripts": {

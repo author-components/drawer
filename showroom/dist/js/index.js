@@ -1,6 +1,6 @@
 /**
  * author-drawer-showroom v1.0.0 generated on Sat May 18 2019.
- * Built at 18:26:10 GMT-0700 (Pacific Daylight Time)
+ * Built at 18:45:50 GMT-0700 (Pacific Daylight Time)
  * Copyright (c) 2019 Author.io
  */
 "use strict";var Demo=new NGNX.VIEW.Registry({selector:".demo",namespace:"demo.",references:{drawers:"author-drawer",openDrawers:"author-drawer[open]",leftDrawer:'author-drawer[position="left"]',rightDrawer:'author-drawer[position="right"]',topDrawer:'author-drawer[position="top"]',bottomDrawer:'author-drawer[position="bottom"]',openLeftButton:"button.open.left",openRightButton:"button.open.right",openTopButton:"button.open.top",openBottomButton:"button.open.bottom"},init:function(){var o=this;this.ref.openLeftButton.on("click",function(t){t.stopPropagation(),o.ref.leftDrawer.element.open()}),this.ref.openRightButton.on("click",function(t){t.stopPropagation(),o.ref.rightDrawer.element.open()}),this.ref.openTopButton.on("click",function(t){t.stopPropagation(),o.ref.topDrawer.element.open()}),this.ref.openBottomButton.on("click",function(t){t.stopPropagation(),o.ref.bottomDrawer.element.open()}),this.ref.drawers.each(function(t){t.on("open",function(){return window.addEventListener("click",o.handleWindowClick.bind(o))}),t.on("close",function(){return window.removeEventListener("click",o.handleWindowClick.bind(o))})})}});Demo.handleWindowClick=function(o){this.ref.openDrawers.each(function(t){o.target===t||t.contains(o.target)||t.close()})};
